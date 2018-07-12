@@ -1,0 +1,29 @@
+<div class="container fonas">
+  <div class="row sale">
+    WEEKLY SALE !!!
+  </div>
+
+
+  <div class="col-md-12">
+  <div class="row">
+      <ng-container *ngFor="let sa of sale | async">
+        <div class="col-md-3">
+          <div class="card bot">
+            <div *ngIf="sa.title" class="card">
+              <img *ngIf="sa.imageUrl1"
+              class="card-img-top"  [src]="sa.imageUrl1a" alt="{{ sa.title }}">
+                <div class="card-body">
+                  <h4 class="card-title">{{ sa.title }}</h4>
+                  <p class="card-text">{{ sa.price | currency:'USD':true }}</p>
+                </div>
+                <div class="card-footer">
+                   <a class="btn btn-primary btn-block" [routerLink]="['/products/', sa.$key]">Plačiau</a>
+
+                </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="(i + 1) % 4 === 0" class="w-100"></div>
+      </ng-container>
+    </div>
+  </div>

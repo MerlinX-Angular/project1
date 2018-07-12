@@ -1,0 +1,27 @@
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+.navbar {
+ background-color: #f8f9fa;
+}
+.navbar-nav .nav-link {
+  color: #b1c522;
+}
+a.nav-link:hover {
+  color: #8e9f0f !important;
+}
+a.nav-link.active {
+  color: #6a7800 !important;
+}
+
+a#nematomas {
+  display:none;
+}
+@media (max-width: 766px) {
+  a#nematomas {
+    font-weight: bold;
+    display:inline-flex;
+    padding-right: 10px;
+  }
+}

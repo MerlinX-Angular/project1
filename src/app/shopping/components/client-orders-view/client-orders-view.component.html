@@ -1,0 +1,48 @@
+<div class="row" *ngIf="order.shipping">
+  <div class="col-md-6">
+    <div class="card bot">
+    <div class="card-body">
+      <h4 class="card-title">Order info</h4>
+      <ul class="list-group list-group-flush">
+        <li *ngFor ="let item of order.items " class="list-group-item">
+          {{item.product.title}} {{item.product.quantity}}kg x {{item.product.price}} =
+          {{ item.product.quantity * item.product.price | currency:'USD':true }}
+        </li>
+        <li class="list-group-item font-weight-bold">
+          Total Price: {{ order.totalPrice | currency:'USD':true }}
+      </li>
+      <li class="list-group-item font-weight-bold">
+          Order Date: {{ order.datePlaced | date:'yyyy-MM-dd' }}
+      </li>
+    </ul>
+    </div>
+  </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Buyer info</h4>
+      <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+      First Name: {{order.shipping.firstName}}
+      </li>
+      <li class="list-group-item">
+      Last Name: {{order.shipping.lastName}}
+      </li>
+      <li class="list-group-item">
+      City: {{order.shipping.city}}
+      </li>
+      <li class="list-group-item">
+      Street: {{order.shipping.street}}
+      </li>
+      <li class="list-group-item">
+      Phone: {{order.shipping.phone}}
+      </li>
+      <li class="list-group-item">
+      Email: {{order.shipping.email}}
+      </li>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,60 @@
+<h4>Shopping Cart</h4>
+<div class="row cart-header">
+  <div class="col-md-5">
+     Product
+  </div>
+
+  <div class="col-md-4">
+     Quantity
+  </div>
+  <div class="col-md-3">
+    Price
+  </div>
+</div>
+
+      <div *ngFor="let p of data">
+        <div class="row cart-item">
+        <div class="col-md-2">
+          <img *ngIf="p.product.imageUrl1"
+          class="img-thumbnail" [src]="p.product.imageUrl1" alt="{{ p.product.title }}">
+        </div>
+
+        <div class="col-md-3">
+          <span id="nematomas" style="font-weight: bold">Product: </span>{{ p.product.title }}
+        </div>
+
+        <div class="col-md-4">
+
+          <button
+            (click)="removeFromCartItem(p)"
+            class="btn btn-secondary">-</button>
+
+            <input type="number" class="form-control-sm" min="1"
+               style="width:5em"
+              [value]="p.quantity"
+                />
+
+          <button
+            (click)="addToCartItem(p)"
+            class="btn btn-secondary">+</button>
+        </div>
+        <div class="col-md-3">
+        <span id="nematomas" style="font-weight: bold">Price: </span>{{ p.product.price | currency:'USD':true }}
+          <div class="cart-trash">
+            <a (click)="removeFromCartProduct(p)">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="text-right">
+      <span style="font-weight: bold">Total price: {{getTotal | currency:'EUR':true }}</span>
+        </div>
+
+      <div class="text-xs-center">
+        <button class="btn btn-primary" routerLink="">Continue Shopping</button>
+        <button class="btn btn-secondary" [disabled]="getTotal == 0"
+         routerLink="/check-out">Checkout </button>
+    </div>

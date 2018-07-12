@@ -1,0 +1,130 @@
+<ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title">Prekė sėkmingai įdėta į pirkinių krepšelį</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                      <span aria-hidden="true">×</span>
+                </button>
+       </div>
+
+        <div class="row modal-body">
+            <div class="col-md-9 col-sm-9 col-9">
+                <p>{{ data?.title }}</p>
+            </div>
+            <div class="col-md-3 col-sm-3 col-3">
+                  {{ data?.price | currency:"USD":true:"2.2-2" }}
+            </div>
+       </div>
+
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-6">
+              <button class="btn btn-outline-danger dydis" (click)="d('Cross click')">
+                Tęsti apsipirkinėjimą
+              </button>
+          </div>
+         <div class="col-md-6 col-sm-6 col-6">
+            <button class="btn btn-danger dydis atstumas" routerLink="/shopping-cart" (click)="d('Cross click')">
+              Peržiūrėti pirkinių krešelį
+            </button>
+         </div>
+      </div>
+    </div>
+</ng-template>
+
+
+<div  class="container">
+<div class="row">
+	<div  class="col-md-6">
+
+	      <div id="big"><img [src]="data.imageUrl1" class="img-thumbnail" />
+				</div>
+		    <div id="small">
+			  <a [href]="data.imageUrl1"><img [src]="data.imageUrl1" class="aba img-thumbnail" /></a>
+			  <a [href]="data.imageUrl2"><img [src]="data.imageUrl2" class="aba img-thumbnail" /></a>
+		    </div>
+
+  </div>
+  <div class="col-md-6">
+   <div id="details_text">
+		 <h3>{{data.title}}</h3>
+     <p><app-rating [rating]="data.rating"></app-rating></p>
+		 <p class="tex">Category:  <span style="font-weight: bold">{{data.category}}</span></p>
+		 <p class="tex">Price:  <span style="font-weight: bold">{{data.price | currency:'EUR':true }}/kg</span></p>
+		  <p class="tex"><span style="color: #c1d62e">500 kg in stock</span></p>
+          <p>
+			       <button class="btn btn-primary btn-md"
+												routerLink="/products">Back
+						 </button>
+						 <button class="btn btn-primary btn-md"
+													(click)="addToCart(data)" (click)="open(content)">Add to cart
+						 </button>
+         </p>
+
+           <ul class="socialSharing list-unstyled">
+
+                     <li>
+                         <a class="btnSharing btnTwitter" href="javascript:void(0);" data-social="twitter">
+                             <i class="fa fa-twitter"></i> Tweet
+                         </a>
+                     </li>
+
+
+                     <li>
+                         <a class="btnSharing btnFacebook" href="javascript:void(0);" data-social="facebook">
+                             <i class="fa fa-facebook"></i> Facebook
+                         </a>
+                     </li>
+
+
+                     <li>
+                         <a class="btnSharing btnGooglePlus" href="javascript:void(0);" data-social="google-plus">
+                             <i class="fa fa-google-plus"></i> Google+
+                         </a>
+                     </li>
+
+
+                     <li>
+                         <a class="btnSharing btnLinkedin" href="javascript:void(0);" data-social="linkedin">
+                             <i class="fa fa-linkedin"></i> Linkedin
+                         </a>
+                     </li>
+
+
+                     <li>
+                         <a class="btnSharing btnPinterest" href="javascript:void(0);" data-social="pinterest">
+                             <i class="fa fa-pinterest-p"></i> Pinterest
+                         </a>
+                     </li>
+
+             </ul>
+
+	 </div>
+  </div>
+</div>
+
+		<div class="tab_container">
+			<input id="tab1" type="radio" name="tabs" checked>
+			<label for="tab1"><i class="fa fa-code"></i><span>Descriptions</span></label>
+
+			<input id="tab2" type="radio" name="tabs">
+			<label for="tab2"><i class="fa fa-pencil-square-o"></i><span>Reviews</span></label>
+
+			<input id="tab3" type="radio" name="tabs">
+			<label for="tab3"><i class="fa fa-bar-chart-o"></i><span>Services</span></label>
+
+			<section id="content1" class="tab-content">
+		      	<p>{{data.descriptions}}</p>
+			</section>
+
+			<section id="content2" class="tab-content">
+            <p>{{data.descriptions}}</p>
+			</section>
+
+			<section id="content3" class="tab-content">
+		     	  <p>{{data.descriptions}}</p>
+			</section>
+		</div>
+
+
+
+</div>
