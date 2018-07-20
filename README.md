@@ -2,6 +2,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
 
+## Project includes:
+<ul>
+<li>Firebase</li>
+<li>Font-awesome</li>
+<li>Bootstrap</li>
+<li>Rxjs</li>
+<li>CRUD</li>
+<li>Input/Output</li>
+<li>Routing</li>
+<li>Pipes</li>
+<li>Forms</li>
+<li>Lazy loading</li>
+<li>Guards</li>
+<li>Testing</li>
+</ul> 
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
